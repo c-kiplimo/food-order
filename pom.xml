@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.collicode</groupId>
-	<artifactId>food-order-back</artifactId>
+	<artifactId>food-order-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>food-order-back</name>
 	<description>food ordering  API</description>
