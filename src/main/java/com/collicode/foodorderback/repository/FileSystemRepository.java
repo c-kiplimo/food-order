@@ -14,31 +14,20 @@ public class FileSystemRepository {
 	
 	String localpatch = getLocalPatch();
 	
-	 // C:\Users\cileb\Desktop\foapp\food-ordering-app\food-order-back\image-meals
+
 
 	public String getLocalPatch() {
 		String patch = "C:";
 		Character s = '\\';
-		String[] tokens = { "Users", "cileb", "Desktop", "foapp", "food-ordering-app", "food-order-back", "image-meals" };
+		String[] tokens = { " "};
 		for (int i = 0; i < tokens.length; i++) {
 			patch += s + tokens[i];
 		}
 		patch += s;
 		return patch;
 	}
-	//C:\Users\cileb\Desktop\foapp\food-ordering-app\food-ordering-front\src\images
 	
-	/*public String getLocalPatch() {
-		String patch = "C:";
-		Character s = '\\';
-		String[] tokens = { "Users", "cileb", "Desktop", "foapp", "food-ordering-app", "food-ordering-front", "src", "images" };
-		for (int i = 0; i < tokens.length; i++) {
-			patch += s + tokens[i];
-		}
-		patch += s;
-		return patch;
 
-	}*/
 	public String save(byte[] content, String imageName) {
 	   Path newFile = Paths.get(localpatch + new Date().getTime() + "-" + imageName);
 	   try {
