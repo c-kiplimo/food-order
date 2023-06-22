@@ -1,5 +1,6 @@
 package com.collicode.foodorderback.model;
 
+import com.collicode.foodorderback.model.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
