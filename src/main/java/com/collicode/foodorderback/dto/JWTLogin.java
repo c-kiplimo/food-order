@@ -1,4 +1,4 @@
-package com.example.foodorderback.dto;
+package com.collicode.foodorderback.dto;
 
 public class JWTLogin {
 	public String username;

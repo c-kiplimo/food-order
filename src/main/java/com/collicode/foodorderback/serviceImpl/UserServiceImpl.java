@@ -1,10 +1,14 @@
-package com.example.foodorderback.serviceImpl;
+package com.collicode.foodorderback.serviceImpl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-
+import com.collicode.foodorderback.dto.JWTLogin;
+import com.collicode.foodorderback.dto.LoginDTO;
+import com.collicode.foodorderback.dto.UserDTO;
+import com.collicode.foodorderback.model.Login;
+import com.collicode.foodorderback.model.User;
+import com.collicode.foodorderback.model.enums.Role;
+import com.collicode.foodorderback.repository.UserRepository;
+import com.collicode.foodorderback.security.JwtUtil;
+import com.collicode.foodorderback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,19 +16,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.stereotype.Service;
 
-import com.example.foodorderback.dto.JWTLogin;
-import com.example.foodorderback.dto.LoginDTO;
-import com.example.foodorderback.dto.UserDTO;
-import com.example.foodorderback.model.Login;
-import com.example.foodorderback.model.Role;
-import com.example.foodorderback.model.User;
-import com.example.foodorderback.repository.UserRepository;
-import com.example.foodorderback.security.JwtUtil;
-import com.example.foodorderback.service.UserService;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {

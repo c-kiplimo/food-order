@@ -1,7 +1,8 @@
 package com.collicode.foodorderback.dto;
 
-import com.example.foodorderback.model.Role;
-import com.example.foodorderback.model.User;
+
+import com.collicode.foodorderback.model.User;
+import com.collicode.foodorderback.model.enums.Role;
 
 public class UserDTO {
 	
@@ -34,7 +35,7 @@ public class UserDTO {
 		this(user.getId(), user.getFirstName(), user.getLastName(),
 				user.getEmail(), user.getUsername(), user.getPassword(), user.getRole(), user.getAddress(), user.getPhoneNumber(), user.isDeleted());
 	}
-	//jedino password ne vraca na front
+
 	public UserDTO(Long id, String firstName,
                    String lastName, String email, String username, String password, Role role, String address, String phoneNumber, boolean deleted) {
 		this.id = id;

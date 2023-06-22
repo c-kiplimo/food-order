@@ -1,23 +1,17 @@
-package com.example.foodorderback.controller;
+package com.collicode.foodorderback.controller;
 
-import java.util.List;
 
+import com.collicode.foodorderback.dto.UserDTO;
+import com.collicode.foodorderback.model.User;
+import com.collicode.foodorderback.model.enums.Role;
+import com.collicode.foodorderback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.example.foodorderback.dto.UserDTO;
-import com.example.foodorderback.model.Role;
-import com.example.foodorderback.model.User;
-import com.example.foodorderback.service.UserService;
+import java.util.List;
 
 @CrossOrigin("*")
 @RestController
@@ -41,7 +35,7 @@ public class UserController {
 			//userDTO.setUserAlreadyExist("yes");
 			responseToClient = "emailOrUsernameAlreadyExist";
 		} else {
-			user.setRole(Role.USER); // po defaultu pri registraciji role se setuje na USER
+			user.setRole(Role.USER);
 			//user.setPassword(user.getPassword());
 			userService.save(user);
 			//userDTO.setUserAdded("yes");
@@ -53,19 +47,18 @@ public class UserController {
 	
 	@RequestMapping(value = "/createEmployee", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> createEmployee(@RequestBody User user) {
-		//UserDTO userDTO = UserMapper.INSTANCE.entityToDTO(user);
-		//UserDTO userDTO = new UserDTO();
+
 		String responseToClient;
 		if (userService.validateUser(user).equals("invalid")) {
 			//userDTO.setUserInvalidInput("yes");
 			responseToClient = "invalidInput";
 		} else if (userService.findByUsername(user.getUsername()) != null
 				|| userService.validateUser(user).equals("not unique")) {
-			//userDTO.setUserAlreadyExist("yes");
+
 			responseToClient = "emailOrUsernameAlreadyExist";
 		} else {
-			user.setRole(Role.EMPLOYEE); // po defaultu kada admin kreira zaposlenog, setuje se role na EMPLOYEE
-			//user.setPassword(user.getPassword());
+			user.setRole(Role.EMPLOYEE);
+
 			userService.save(user);
 			//userDTO.setUserAdded("yes");
 			responseToClient = "success";
@@ -101,7 +94,7 @@ public class UserController {
 		if (userService.findOne(id) == null) {
 			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
 		}
-		// ovo sam dodao da ne puca, jer sa fronta ne salje id i role
+
 		User user = userService.findOne(id);
 		employeeDetails.setId(user.getId());
 		employeeDetails.setRole(user.getRole());
@@ -135,7 +128,7 @@ public class UserController {
 	
 		return new ResponseEntity<UserDTO>(new UserDTO(user), HttpStatus.OK);
 	}
-	//mora bez consumes, jer se sad ne salje nikakav json objekat, vec samo id u putanji
+
 	@RequestMapping(value = "/deactivateUser/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> deactivateUser(@PathVariable Long id) {
 		if (userService.findOne(id) == null) {

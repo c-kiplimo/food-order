@@ -1,8 +1,9 @@
 package com.collicode.foodorderback.controller;
 
-import com.example.foodorderback.dto.LoginDTO;
-import com.example.foodorderback.model.Login;
-import com.example.foodorderback.service.UserService;
+
+import com.collicode.foodorderback.dto.LoginDTO;
+import com.collicode.foodorderback.model.Login;
+import com.collicode.foodorderback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

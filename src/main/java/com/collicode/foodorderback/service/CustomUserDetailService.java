@@ -1,7 +1,8 @@
 package com.collicode.foodorderback.service;
 
-import com.example.foodorderback.model.User;
-import com.example.foodorderback.repository.UserRepository;
+
+import com.collicode.foodorderback.model.User;
+import com.collicode.foodorderback.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,9 +1,9 @@
 package com.collicode.foodorderback.service;
 
-import com.example.foodorderback.dto.LoginDTO;
-import com.example.foodorderback.dto.UserDTO;
-import com.example.foodorderback.model.Login;
-import com.example.foodorderback.model.User;
+import com.collicode.foodorderback.dto.LoginDTO;
+import com.collicode.foodorderback.dto.UserDTO;
+import com.collicode.foodorderback.model.Login;
+import com.collicode.foodorderback.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public interface UserService {
 	String validateUser(User user);
 	String validateUserUpdate(User user);
 	String updateUser(User u);
-	LoginDTO generateToken(Login login); 
+	LoginDTO generateToken(Login login);
 	String isValidLogout();
 	String deactivateUser(Long id);
 	

@@ -1,6 +1,7 @@
 package com.collicode.foodorderback.dto;
 
-import com.example.foodorderback.model.User;
+
+import com.collicode.foodorderback.model.User;
 
 public class LoginDTO {
 	
